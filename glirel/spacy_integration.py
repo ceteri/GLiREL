@@ -94,7 +94,8 @@ class SpacyGLiRELWrapper:
     def __call__(self, doc: Doc, threshold=None) -> Doc:
         threshold = threshold or self.threshold
         if len(doc.ents) < 2: 
-            logger.warning("The input text must contain at least two entities; skipping...")
+            #IT IS ABSURD TO PLACE A NON-STANDARD LOGGER DEEp WITHIN A PIPELINE CALLBACK
+            #logger.warning("The input text must contain at least two entities; skipping...")
             doc = self._set_relatons(doc, relations=[])
             return doc
 
